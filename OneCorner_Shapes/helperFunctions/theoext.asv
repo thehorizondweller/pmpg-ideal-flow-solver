@@ -1,0 +1,18 @@
+function theta_phi = theoext(divs, f, iterMax, psiExt, thetaExt)
+    phi = 2*pi*[0:divs-1/divs;
+    theta = phi;
+    theta1 = theta;
+    disp("Iteration No. || Error");
+    for iter = 1:iterMax
+        c = log(abs(f));
+        c = -conjug(c);
+        theta = real(c) + phi;
+        error = max(abs(theta-theta1));
+        theta1 = theta;
+        fprintf('%6.0f %30.14e \n', iter, error);
+        psiEval = interp1(thetaExt, psiExt, theta, 'spline');
+        f = psiEval.*exp(1i*theta);
+    end
+    theta_phi = theta;
+end
+
