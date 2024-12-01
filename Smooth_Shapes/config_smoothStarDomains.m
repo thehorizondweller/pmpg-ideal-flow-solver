@@ -127,11 +127,11 @@ code at the end.
 
 
 % USER INPUTS
-radialPts = 41;
-angularPts = 101;
-terminalR = 10;
-U = 1; % Far Field Conditions
-alpha = 5; % In degrees
+radialPts = 41; % Number of divisions in the radial direction
+angularPts = 101; % Number of divisions in the angular direction
+terminalR = 10; % Extent of the domain in multiples of the radius of the cylinder
+U = 1; % Far Field Scaled Velocity
+alpha = 5; % Angle of Attack in Degrees
 kuttaNormGDev = 0.1; % Bandwidth around equivalent Kutta circulation to look for minimizing solution
 
 flowFieldData = computeFlowField(radialPts,angularPts,terminalR,a,psi_0,U,alpha,beta,kuttaNormGDev,A,B);
